@@ -2,9 +2,11 @@
 
 import { db } from './config.json'
 
-import pgp from 'pg-promise'
+import pgPromise from 'pg-promise'
 
-export default pgp()({
+export const pgp = pgPromise()
+
+export default pgp({
   host: db.host,
   port: db.port,
   database: db.database,
