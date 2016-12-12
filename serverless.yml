@@ -1,0 +1,65 @@
+service: communityfund
+plugins:
+  - serverless-webpack
+provider:
+  name: aws
+  runtime: nodejs4.3
+  profile: serverless_communityfund
+  region: us-east-1
+functions:
+  authSMS:
+    handler: routes.smsAuth
+    events:
+        - http:
+            path: auth/sms
+            method: post
+            integration: lambda
+            cors: true
+  authValidate:
+    handler: routes.validateAuth
+    events:
+        - http:
+            path: auth/validate
+            method: post
+            integration: lambda
+            cors: true
+  listSubmission:
+    handler: routes.listSubmission
+    events:
+        - http:
+            path: submission
+            method: get
+            integration: lambda
+            cors: true
+  createSubmission:
+    handler: routes.createSubmission
+    events:
+        - http:
+            path: submission
+            method: post
+            integration: lambda
+            cors: true
+  oneSubmission:
+    handler: routes.oneSubmission
+    events:
+        - http:
+            path: submission/{id}
+            method: get
+            integration: lambda
+            cors: true
+            request:
+              parameters:
+                 paths:
+                   id: false
+  voteSubmission:
+    handler: routes.voteSubmission
+    events:
+        - http:
+            path: submission/{id}/vote
+            method: put
+            integration: lambda
+            cors: true
+            request:
+              parameters:
+                 paths:
+                   id: false
