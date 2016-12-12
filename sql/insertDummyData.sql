@@ -12,12 +12,12 @@ insert into reviewer (id, name) values
 
 alter sequence reviewer_id_seq restart with 6;
 
-insert into submission (id, status) values
-  (1, 'pending'),
-  (2, 'pending'),
-  (3, 'passed'),
-  (4, 'rejected'),
-  (5, 'passed');
+insert into submission (id, email, phone, ask_amount, total_amount) values
+  (1, 'foo@bar.is', '5812345', 50000, 50000),
+  (2, 'fry@futur.ama', '81238765', 20000, 100000),
+  (3, 'leela@futur.ama', '8885552', 30000, 40000),
+  (4, 'bender@futu.rama', '6601234', 35000, 60000),
+  (5, 'amy@futur.rama', null, 40000, 40000);
 
 alter sequence submission_id_seq restart with 6;
 

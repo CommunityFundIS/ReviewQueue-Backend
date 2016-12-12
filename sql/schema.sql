@@ -32,20 +32,23 @@ comment on column reviewer.name is 'The reviewers first name.';
 comment on column reviewer.created_at is 'The time this reviewer was created.';
 comment on column reviewer.updated_at is 'The latest time this reviewer was updated.';
 
-create type submission_status as enum ('pending', 'passed', 'rejected');
-
--- TODO: email, phone, askamount, totalamound,
 create table submission (
   id               serial not null primary key,
-  status           submission_status,
+  email            text not null,
+  phone            text,
+  ask_amount       int not null,
+  total_amount     int not null,
   created_at       timestamp,
   updated_at       timestamp
 );
 
 comment on table submission is 'A funding submission written by a submitter.';
 comment on column submission.id is 'The primary key for the submission.';
-comment on column submission.status is 'The status this has been submissioned in.';
-comment on column submission.created_at is 'The time this submission was created.';
+comment on column submission.email is 'The email of the submitter';
+comment on column submission.phone is 'The phone number of the submitter';
+comment on column submission.ask_amount is 'The amount the submitter asks from the fund.';
+comment on column submission.total_amount is 'The amount that the submitter estimates this will cost';
+comment on column submission.created_at is 'The latest time this submission was created.';
 comment on column submission.updated_at is 'The latest time this submission was updated.';
 
 -- TODO: Add will_be_held_on date column.
