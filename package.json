@@ -4,8 +4,7 @@
   "description": "",
   "main": "routes.js",
   "scripts": {
-    "test": "find ./stores -name '*test.js' | xargs jest",
-    "test-integration": "find ./stores -name '*integration.test.js' | xargs jest",
+    "test-integration": "jest stores/index.integration.test.js",
     "test-unit": "find ./stores -name '*unit.test.js' | xargs jest"
   },
   "author": "",

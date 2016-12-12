@@ -1,7 +1,7 @@
 'use strict'
 
 import moment from 'moment'
-import db from '../db'
+import db from '../stores/db'
 
 /*
   GET /submission - Get all submissions

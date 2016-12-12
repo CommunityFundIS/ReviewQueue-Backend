@@ -1,6 +1,6 @@
 'use strict'
 
-import { db } from './config.json'
+import { db } from '../config.json'
 
 import pgPromise from 'pg-promise'
 

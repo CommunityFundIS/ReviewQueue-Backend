@@ -1,7 +1,7 @@
-import db from '../db'
+import db from './db'
 
 // TODO: Page this.
-export const getSubmissions = () => db.many(
+export const getSubmissions = () => db.manyOrNone(
   'select * from submission'
 )
 
